@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "../../app.module.css";
 import { CartWidget } from "../../components";
 export const Navbar = () => {
@@ -10,12 +10,21 @@ export const Navbar = () => {
           <p>Artículos Eléctricos</p>
         </div>
         <nav className={styles.navbar}>
-          <NavLink to="/">
+          <Link to="/">
             <button>INICIO</button>
-          </NavLink>
-          <NavLink to="/tienda">
-            <button>TIENDA</button>
-          </NavLink>
+          </Link>
+          <Link to="/tienda">
+            <button>TODO</button>
+          </Link>
+          <Link to="/category/electricidad">
+            <button>ELECTRICIDAD</button>
+          </Link>
+          <Link to="/category/cables">
+            <button>CABLES</button>
+          </Link>
+          <Link to="/category/accesorios">
+            <button>ACCESORIOS</button>
+          </Link>
         </nav>
         <CartWidget addToCart="20" />
       </div>

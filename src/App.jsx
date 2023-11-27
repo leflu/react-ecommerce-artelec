@@ -11,6 +11,7 @@ function App() {
           element={<Greetings greeting="Bienvenido a Artelec" />}
         />
         <Route path="/tienda" element={<ProductList />} />
+        <Route path="/category/:category" element={<ProductList />} />
       </Routes>
     </BrowserRouter>
   );
