@@ -1,0 +1,14 @@
+.addToCartButton{
+    padding: 0.2rem;
+    margin-right: 0.7rem;
+    margin-top: 0.6rem;
+    border: none;
+    border-radius: 0.2rem;
+    background-color: rgb(205, 205, 205);
+    font-size: 1.3rem;
+    font-weight: bold;
+    width: 20%;
+}
+.quantity{
+    margin-top: 0.5rem;
+}

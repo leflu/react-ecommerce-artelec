@@ -18,7 +18,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-width: 10%
+    min-width: 10%;
 }
 .navbar{
     display: flex;
@@ -44,8 +44,9 @@ body{
 }
 .greetings{
     display: flex;
-    justify-content: center;
-    margin: 2rem;
-    color: black;
-    font-size: 2rem;
+    justify-content: start;
+    margin-left: 1.2rem;
+    margin-top: 1rem;
+    color: rgb(235, 235, 235);
+    font-size: 1.5rem;
 }

@@ -1,0 +1,7 @@
+.loading{
+    font-size: 4rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 15rem;
+}
