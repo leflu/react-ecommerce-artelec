@@ -1,6 +1,6 @@
 const products = [
     {
-      id: 1,
+      id: "1",
       category: "cables",
       name: "Cable eléctrico",
       description: "Cable de cobre aislado para conexiones eléctricas seguras y eficientes.",
@@ -9,7 +9,7 @@ const products = [
       stock: 5
     },
     {
-      id: 2,
+      id: "2",
       category: "electricidad",
       name: "Interruptor de luz",
       description: "Interruptor de pared para encender y apagar la iluminación de manera conveniente.",
@@ -18,7 +18,7 @@ const products = [
       stock: 15
     },
     {
-      id: 3,
+      id: "3",
       category: "electricidad",
       name: "Enchufe eléctrico",
       description: "Enchufe estándar para conectar dispositivos eléctricos a la corriente.",
@@ -27,7 +27,7 @@ const products = [
       stock: 9
     },
     {
-      id: 4,
+      id: "4",
       category: "electricidad",
       name: "Fusible",
       description: "Dispositivo de protección que se funde para evitar daños por sobrecarga eléctrica.",
@@ -36,7 +36,7 @@ const products = [
       stock: 1
     },
     {
-      id: 5,
+      id: "5",
       category: "accesorios",
       name: "Alargador",
       description: "Multiplicador de tomas eléctricas para conectar varios dispositivos a la vez.",
@@ -45,7 +45,7 @@ const products = [
       stock: 4
     },
     {
-      id: 6,
+      id: "6",
       category: "electricidad",
       name: "Transformador",
       description: "Dispositivo que cambia el voltaje de la corriente eléctrica para adaptarlo a diferentes aparatos.",
@@ -54,7 +54,7 @@ const products = [
       stock: "5"
     },
     {
-      id: 7,
+      id: "7",
       category: "electricidad",
       name: "Caja de conexiones",
       description: "Caja protectora para empalmar y conectar cables eléctricos de manera segura.",
@@ -63,7 +63,7 @@ const products = [
       stock: "2"
     },
     {
-      id: 8,
+      id: "8",
       category: "accesorios",
       name: "Timbre eléctrico",
       description: "Dispositivo para señalizar la llegada de visitantes o notificar eventos mediante un sonido eléctrico.",
@@ -81,6 +81,22 @@ export const getProducts = () =>{
       }, 2000);
     }else{
       reject("No hay productos.")
+    }
+  })
+}
+
+export const getProductById = (id) => {
+  return new Promise ((resolve, reject) =>{
+    if(products.length > 0){
+      const product = products.find( p => p.id === id);
+      setTimeout(() =>{
+        if(!product){
+          reject(`No se encuentre el producto con id ${id}`)
+        }
+        resolve(product);
+      }, 2000);
+    }else {
+      reject("No hay productos");
     }
   })
 }

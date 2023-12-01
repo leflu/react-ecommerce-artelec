@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Greetings, Navbar, ProductList } from "./components";
+import { ProductListDetail } from "./components/ProductListDetail/ProductListDetail";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         />
         <Route path="/tienda" element={<ProductList />} />
         <Route path="/category/:category" element={<ProductList />} />
+        <Route path="/item/:id" element={<ProductListDetail />} />
       </Routes>
     </BrowserRouter>
   );
