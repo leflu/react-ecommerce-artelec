@@ -1,10 +1,9 @@
-import styles from "../../app.module.css";
-import cartIcon from "../../assets/cart-icon.png";
+import { CiShoppingCart } from "react-icons/ci";
 
 export const CartWidget = ({ addToCart }) => {
   return (
     <>
-      <img src={cartIcon} alt="Carrito de compras" className={styles.cart} />
+      <CiShoppingCart size={"2em"} />
       <h2>{addToCart}</h2>
     </>
   );

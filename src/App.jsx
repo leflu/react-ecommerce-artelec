@@ -9,7 +9,12 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Greetings greeting="Bienvenido a Artelec" />}
+          element={
+            <Greetings
+              greeting="Bienvenido a ARTELEC"
+              message="Somos el mayor proveedor de árticulos eléctricos de la IV región de Coquimbo, Chile."
+            />
+          }
         />
         <Route path="/tienda" element={<ProductList />} />
         <Route path="/category/:category" element={<ProductList />} />

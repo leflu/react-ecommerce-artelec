@@ -1,7 +1,18 @@
-.loading{
-    font-size: 4rem;
-    color: white;
+.loadingContainer{
     display: flex;
     justify-content: center;
-    margin-top: 15rem;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+}
+.loading{
+    font-size: 3rem;
+    color: rgb(224, 224, 224);
+    font-weight: 300;
+}
+
+.tarjetasContainer{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
 }

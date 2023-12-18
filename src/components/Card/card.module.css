@@ -1,23 +1,24 @@
-.tarjetaContainer{
-    width: 25%;
 
-}
 .tarjeta{
-    color: rgb(220, 220, 220);
-    background-color: rgb(73, 73, 73);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin: 1rem;
-}
-
-.description{
-    margin-top: 0.5rem;
-}
-.value{
-    margin-top: 0.5rem;
+    color: rgb(186, 186, 186);
+    background-color: rgb(37, 37, 37);
+    border-radius: .2rem;
+    border: none;
+    margin: .5rem;
+    display: flex;
+    flex-direction: column;
 }
 .productImage{
-    width: 100%;
-    padding-top: 1rem;
-    border-radius: 0.3rem;
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+}
+.priceProduct{
+    padding: 0.5rem;
+    margin-top: 0.3rem;
+}
+.nameProduct{
+
+    padding: 0.5rem;
+    margin-top: 0.5rem;
 }

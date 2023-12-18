@@ -2,7 +2,7 @@ import { useCount } from "../../hooks/useCount";
 import styles from "./addtocart.module.css";
 
 export const AddToCart = () => {
-  const { count, add, substract, reset, max } = useCount();
+  const { count, add, substract, reset } = useCount();
 
   return (
     <>

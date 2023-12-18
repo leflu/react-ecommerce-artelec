@@ -1,20 +1,19 @@
 import { Link } from "react-router-dom";
-import { AddToCart } from "../AddToCart/AddToCart";
 import { Button } from "../Button/Button";
 import styles from "./card.module.css";
 
-export const Card = ({ name, price, image, id }) => {
+export const Card = ({ name, image, id, price }) => {
   return (
     <>
-      <div className={styles.tarjetaContainer}>
-        <div className={styles.tarjeta}>
-          <h2>{name}</h2>
-          <p className={styles.value}>{price}</p>
+      <div className={styles.tarjeta}>
+        <Link to={`/item/${id}`}>
           <img src={image} className={styles.productImage}></img>
-          <Link to={`/item/${id}`}>
-            <Button textButton="Ver Detalles" variant="stylesButton" />
-          </Link>
-        </div>
+        </Link>
+        <h2 className={styles.nameProduct}>{name}</h2>
+        <p className={styles.priceProduct}>{price}</p>
+        <Link to={`/item/${id}`}>
+          <Button textButton="DETALLES" variant="detailsButton" />
+        </Link>
       </div>
     </>
   );

@@ -1,0 +1,18 @@
+.greetingsContainer{
+    color: rgb(234, 234, 234);
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    height: 80vh;
+    padding: 1rem;
+    justify-content: center;
+}
+
+.greetingsTitle{
+    font-size: 4rem;
+}
+.greetingsDrop{
+    font-size: 3rem;
+    font-weight: 300;
+    color: rgb(195, 195, 195);
+}

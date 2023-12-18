@@ -10,7 +10,6 @@ export const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    console.log(category);
     setIsLoading(true);
     getProducts()
       .then((resp) => {
@@ -18,6 +17,7 @@ export const ProductList = () => {
           const productsFilter = resp.filter(
             (product) => product.category === category
           );
+
           if (productsFilter.length > 0) {
             setProducts(productsFilter);
           } else {
@@ -26,18 +26,24 @@ export const ProductList = () => {
         } else {
           setProducts(resp);
         }
-        setIsLoading(!isLoading);
+        setIsLoading(false);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setIsLoading(false);
+      });
   }, [category]);
 
   return (
     <>
-      {isLoading ? (
-        <h2 className={styles.loading}>Cargando los productos...</h2>
-      ) : (
-        products.map((product) => <Card key={product.id} {...product} />)
-      )}
+      <div className={styles.tarjetasContainer}>
+        {isLoading ? (
+          <div className={styles.loadingContainer}>
+            <h2 className={styles.loading}>Cargando los productos...</h2>{" "}
+          </div>
+        ) : (
+          products.map((product) => <Card key={product.id} {...product} />)
+        )}
+      </div>
     </>
   );
 };
