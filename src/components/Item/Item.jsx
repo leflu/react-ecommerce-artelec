@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { AddToCart } from "../AddToCart/AddToCart";
-import { Button } from "../Button/Button";
 import styles from "./item.module.css";
+import { CartContext } from "../../context/CartContext";
+import { useCount } from "../../hooks/useCount";
 
-export const Item = ({ name, image, description, price, stock }) => {
+export const Item = ({ name, image, description, price, stock, id }) => {
+  const {addItem} = useContext(CartContext);
+  const {count} = useCount(0,stock)
   return (
     <>
       <div className={styles.itemContainer}>
@@ -10,9 +14,9 @@ export const Item = ({ name, image, description, price, stock }) => {
         <div className={styles.itemContent}>
           <h2>{name}</h2>
           <h3>{price}</h3>
+          <h4>Disponible: {stock}</h4>
           <p>{description}</p>
-          <AddToCart max={stock} />
-          <Button textButton="Agregar al carrito" variant="stylesButton" />
+          <AddToCart stock={stock} />
         </div>
       </div>
     </>

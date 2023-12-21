@@ -1,7 +1,9 @@
-import {v4} from "uuid"
+import {addDoc, collection} from "firebase/firestore"
+import { db } from "../config/firebaseConfig";
+import { v4 } from "uuid";
 const products = [
     {
-      id: v4(),
+      id:v4(),
       category: "cables",
       name: "Cable eléctrico",
       description: "Cable de cobre aislado para conexiones eléctricas seguras y eficientes.",
@@ -10,7 +12,7 @@ const products = [
       stock: 5
     },
     {
-      id: v4(),
+      id:v4(),
       category: "electricidad",
       name: "Interruptor de luz",
       description: "Interruptor de pared para encender y apagar la iluminación de manera conveniente.",
@@ -19,7 +21,7 @@ const products = [
       stock: 15
     },
     {
-      id: v4(),
+      id:v4(),
       category: "electricidad",
       name: "Enchufe eléctrico",
       description: "Enchufe estándar para conectar dispositivos eléctricos a la corriente.",
@@ -28,7 +30,7 @@ const products = [
       stock: 9
     },
     {
-      id: v4(),
+      id:v4(),
       category: "electricidad",
       name: "Fusible",
       description: "Dispositivo de protección que se funde para evitar daños por sobrecarga eléctrica.",
@@ -37,7 +39,7 @@ const products = [
       stock: 1
     },
     {
-      id: v4(),
+      id:v4(),
       category: "accesorios",
       name: "Alargador",
       description: "Multiplicador de tomas eléctricas para conectar varios dispositivos a la vez.",
@@ -46,7 +48,7 @@ const products = [
       stock: 4
     },
     {
-      id: v4(),
+      id:v4(),
       category: "electricidad",
       name: "Transformador",
       description: "Dispositivo que cambia el voltaje de la corriente eléctrica para adaptarlo a diferentes aparatos.",
@@ -55,7 +57,7 @@ const products = [
       stock: "5"
     },
     {
-      id: v4(),
+      id:v4(),
       category: "electricidad",
       name: "Caja de conexiones",
       description: "Caja protectora para empalmar y conectar cables eléctricos de manera segura.",
@@ -64,7 +66,7 @@ const products = [
       stock: "2"
     },
     {
-      id: v4(),
+      id:v4(),
       category: "accesorios",
       name: "Timbre eléctrico",
       description: "Dispositivo para señalizar la llegada de visitantes o notificar eventos mediante un sonido eléctrico.",
@@ -73,31 +75,10 @@ const products = [
       stock: "7"
     } 
   ];
-  
-export const getProducts = () =>{
-  return new Promise((resolve, reject) =>{
-    if(products.length > 0){
-      setTimeout(() => {
-        resolve(products)
-      }, 1000);
-    }else{
-      reject("No hay productos.")
-    }
-  })
-}
 
-export const getProductById = (id) => {
-  return new Promise ((resolve, reject) =>{
-    if(products.length > 0){
-      const product = products.find( p => p.id === id);
-      setTimeout(() =>{
-        if(!product){
-          reject(`No se encuentre el producto con id ${id}`)
-        }
-        resolve(product);
-      }, 1000);
-    }else {
-      reject(console.log("error"));
-    }
-  })
+export const seedProducts = ( )=> {
+
+    products.forEach(product =>{
+        addDoc(collection(db, "products"), product)
+    })
 }

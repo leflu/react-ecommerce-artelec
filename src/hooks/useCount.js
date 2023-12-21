@@ -22,5 +22,6 @@ export const useCount = ( initial = 0, max) =>{
         add,
         substract,
         reset,
+
       }
 }

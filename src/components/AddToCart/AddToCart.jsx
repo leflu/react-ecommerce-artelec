@@ -1,8 +1,12 @@
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 import { useCount } from "../../hooks/useCount";
 import styles from "./addtocart.module.css";
 
-export const AddToCart = () => {
-  const { count, add, substract, reset } = useCount();
+
+export const AddToCart = ({ name, price, stock, id }) => {
+  const { count, add, substract, reset } = useCount(0, stock);
+  const {addItem} = useContext(CartContext);
 
   return (
     <>
@@ -17,6 +21,7 @@ export const AddToCart = () => {
         <button className={styles.addToCartButton} onClick={reset}>
           🗑️
         </button>
+        <button className={styles.detailsButton} onClick={() => addItem({id, name, price}, count)}>AGREGAR AL CARRO</button>
       </div>
     </>
   );

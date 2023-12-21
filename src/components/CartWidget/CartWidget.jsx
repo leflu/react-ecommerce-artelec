@@ -1,10 +1,9 @@
 import { CiShoppingCart } from "react-icons/ci";
 
-export const CartWidget = ({ addToCart }) => {
+export const CartWidget = ({}) => {
   return (
     <>
       <CiShoppingCart size={"2em"} />
-      <h2>{addToCart}</h2>
     </>
   );
 };

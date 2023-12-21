@@ -29,7 +29,7 @@ export const Navbar = () => {
           </div>
         </nav>
         <div className={styles.cartWidget}>
-          <CartWidget addToCart="0" className={styles.cart} />
+          <CartWidget className={styles.cart} />
         </div>
       </div>
     </>

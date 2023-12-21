@@ -1,16 +1,24 @@
+import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getProductById } from "../../productsMock";
+import { db } from "../../config/firebaseConfig";
 import { Item } from "../Item/Item";
 
 export const ProductListDetail = () => {
-  const { id } = useParams();
   const [item, setItem] = useState(null);
-
+  const getProductById = (id) => {
+    const itemRef = doc(db, "products", id);
+    getDoc(itemRef).then((resp) => {
+      if (resp.exists()) {
+        const item = {
+          id: resp.id,
+          ...resp.data(),
+        };
+        setItem(item);
+      }
+    });
+  };
   useEffect(() => {
-    getProductById(id)
-      .then((resp) => setItem(resp))
-      .catch((error) => console.log(error));
+    getProductById("6SCvF1X8ooY5HhKWdYYS");
   }, [item]);
   return <>{item && <Item {...item} />}</>;
 };
